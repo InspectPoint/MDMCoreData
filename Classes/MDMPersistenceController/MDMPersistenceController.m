@@ -155,6 +155,7 @@ NSString *const MDMIndependentManagedObjectContextDidSaveNotification = @"MDMInd
     
     // Create managed object contexts
     self.writerObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.writerObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     [self.writerObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
     if (self.writerObjectContext == nil) {
         
